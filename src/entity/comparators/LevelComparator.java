@@ -1,5 +1,6 @@
-package entity;
+package entity.comparators;
 
+import entity.Level;
 import utils.Pair;
 
 import java.util.Comparator;

@@ -2,8 +2,6 @@ package windows;
 
 import database.ConnectionPostgres;
 import entity.BestResult;
-import entity.Level;
-import entity.LevelComparator;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.TreeSet;
 
 public class BestResultController {
 

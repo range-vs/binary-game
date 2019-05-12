@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import entity.LevelComparator;
+import entity.comparators.LevelComparator;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import utils.Pair;
