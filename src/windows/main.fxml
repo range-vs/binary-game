@@ -30,7 +30,7 @@
                </items></Menu>
           </menus>
       </MenuBar>
-      <Label text="Тестирование" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Label text="Игровой тренажёр" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="23.0" />
          </font></Label>
