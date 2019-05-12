@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windows.BestResultController">
+    <content>
+<BorderPane style="-fx-background-color: rgb(25,30,36);">
+   <top>
+      <Label text="20 лучших результатов всех пользователей" textFill="WHITE" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="25.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+       <content>
+      <TableView fx:id="tableResults" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="columnNumber" minWidth="43.0" prefWidth="43.0" sortable="false" text="№" />
+          <TableColumn fx:id="columnLogin" minWidth="162.0" prefWidth="162.0" sortable="false" text="Пользователь" />
+            <TableColumn fx:id="columnLevel" minWidth="67.0" prefWidth="67.0" sortable="false" text="Уровень" />
+            <TableColumn fx:id="columnCount" minWidth="155.0" prefWidth="155.0" sortable="false" text="Количество правильных" />
+            <TableColumn fx:id="columnTime" minWidth="132.0" prefWidth="132.0" sortable="false" text="Время прохождения" />
+        </columns>
+          <BorderPane.margin>
+              <Insets bottom="20.0" left="20.0" right="20.0" />
+          </BorderPane.margin>
+      </TableView>
+       </content>
+           <BorderPane.margin>
+               <Insets bottom="20.0" left="20.0" right="20.0" />
+           </BorderPane.margin>
+       </ScrollPane>
+   </center>
+</BorderPane>
+    </content>
+</ScrollPane>
