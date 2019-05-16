@@ -18,38 +18,36 @@ public class ConnectionPostgres {
         this.url = url;
         this.username = username;
         this.password = password;
-        try {
-            connect();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(!connect()){
             return false;
         }
         return true;
     }
 
-    private void connect() throws SQLException {
+    private boolean connect() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("PostgreSQL JDBC Driver is not found. Include it in your library path ");
             e.printStackTrace();
-            return;
+            return false;
         }
         System.out.println("PostgreSQL JDBC Driver successfully connected");
         connection = null;
         try {
             connection = DriverManager.getConnection(url, username, password);
-
         } catch (SQLException e) {
             System.out.println("Connection Failed");
             e.printStackTrace();
-            return;
+            return false;
         }
         if (connection != null) {
             System.out.println("You successfully connected to database now");
         } else {
             System.out.println("Failed to make connection to database");
+            return false;
         }
+        return true;
     }
 
     public Connection getConnection() {
