@@ -1,15 +1,18 @@
 package generator_task;
 
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import utils.Pair;
 
 public class Level1_3 extends Task {
 
@@ -18,18 +21,18 @@ public class Level1_3 extends Task {
     private boolean style;
 
     @Override
-    public FlowPane generateTask() {
+    public Pair generateTask() {
         FlowPane flowPane = new FlowPane();
         flowPane.setOrientation(Orientation.VERTICAL);
         flowPane.setAlignment(Pos.CENTER);
         Label info = new Label("Вставить на место пропущенного бита недостающее \nзначение так, чтобы равенство стало верным:");
         info.setStyle("-fx-text-fill:white");
         info.setTextAlignment(TextAlignment.CENTER);
-        info.setWrapText(true);
+        //info.setWrapText(true);
         info.setFont(new Font(23));
-        info.setAlignment(Pos.CENTER);
+        GridPane.setHalignment(info, HPos.CENTER);
+
         VBox.setMargin(info, new Insets(80, 10, 0, 10));
-        flowPane.getChildren().add(info);
         int number = (int) (Math.random() * 1000) + 1; // число
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
@@ -93,7 +96,7 @@ public class Level1_3 extends Task {
                 }
             }
         });
-        return flowPane;
+        return new Pair(flowPane, info);
     }
 
     @Override

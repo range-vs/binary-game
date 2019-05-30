@@ -1,11 +1,11 @@
 package utils;
 
-public class Pair {
+public class Pair<K, V> {
 
-    private Object first;
-    private Object second;
+    private K first;
+    private V second;
 
-    public Pair(Object first, Object second) {
+    public Pair(K first, V second) {
         this.first = first;
         this.second = second;
     }
@@ -15,19 +15,19 @@ public class Pair {
         second = null;
     }
 
-    public Object getFirst() {
+    public K getFirst() {
         return first;
     }
 
-    public void setFirst(Object first) {
+    public void setFirst(K first) {
         this.first = first;
     }
 
-    public Object getSecond() {
+    public V getSecond() {
         return second;
     }
 
-    public void setSecond(Object second) {
+    public void setSecond(V second) {
         this.second = second;
     }
 }

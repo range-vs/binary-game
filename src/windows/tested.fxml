@@ -14,7 +14,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(25,30,36);" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windows.TestedController">
    <children>
-      <BorderPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0" visible="true">
+      <BorderPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0">
          <center>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -38,39 +38,35 @@
             </GridPane>
          </center>
       </BorderPane>
-      <ScrollPane fx:id="testPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <ScrollPane fx:id="testPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(25,30,36);" visible="false">
          <content>
-            <BorderPane style="-fx-background-color: rgb(25,30,36);"  prefHeight="200.0" prefWidth="200.0">
-               <right>
-                  <VBox maxWidth="200.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <GridPane fx:id="testPaneCenterPane" gridLinesVisible="true" style="-fx-background-color: rgb(25,30,36);">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="102.0" prefWidth="102.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="371.0" prefWidth="371.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="102.0" prefWidth="102.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="221.0" prefHeight="221.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="135.0" minHeight="135.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="42.0" minHeight="42.0" prefHeight="42.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox maxWidth="200.0" prefHeight="385.0" prefWidth="106.0">
+                     <children>
+                        <Label text="Количество:" textFill="WHITE" />
+                        <Label fx:id="testPaneCountTest" textFill="WHITE" />
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="200.0" prefHeight="350.0" prefWidth="117.0" GridPane.columnIndex="2">
                      <children>
                         <Label text="Время:" textFill="WHITE" />
                         <Label fx:id="testPaneCurrentTime" textFill="WHITE" />
                      </children>
                   </VBox>
-               </right>
-               <left>
-                  <VBox maxWidth="200.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label text="Количество:" textFill="WHITE" />
-                        <Label fx:id="testPaneCountTest" textFill="WHITE" />
-                     </children>
-                     <BorderPane.margin>
-                        <Insets left="10.0" />
-                     </BorderPane.margin>
-                  </VBox>
-               </left>
-               <center>
-                  <BorderPane fx:id="testPaneCenterPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-               </center>
-               <bottom>
-                  <Button fx:id="testPaneButtonAnswer" mnemonicParsing="false" onAction="#runAnswer" text="Ответить" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets bottom="30.0" />
-                     </BorderPane.margin>
-                  </Button>
-               </bottom>
-            </BorderPane>
+                  <Button fx:id="testPaneButtonAnswer" mnemonicParsing="false" onAction="#runAnswer" text="Ответить" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+               </children>
+            </GridPane>
          </content></ScrollPane>
       <BorderPane fx:id="finalPane" prefHeight="200.0" prefWidth="200.0" visible="false">
          <center>

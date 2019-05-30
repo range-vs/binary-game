@@ -8,7 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import utils.Pair;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +36,7 @@ public class TestedController {
     @FXML
     private Label testPaneCountTest;
     @FXML
-    private BorderPane testPaneCenterPane;
+    private GridPane testPaneCenterPane;
     @FXML
     private Button testPaneButtonAnswer;
     @FXML
@@ -49,6 +52,8 @@ public class TestedController {
     private Task currentTask;
     private int correctTest;
     private String login;
+    private FlowPane oldFlowPane;
+    private Label oldLabel;
 
 
     public void initialize(){
@@ -56,6 +61,8 @@ public class TestedController {
         countTests = 0;
         currentTest = 0;
         currentTask = null;
+        oldFlowPane = null;
+        oldLabel = null;
         correctTest = 0;
         initStyles();
     }
@@ -118,8 +125,11 @@ public class TestedController {
         currentTest++;
         testPaneCountTest.setText(currentTest+"/"+countTests);
         currentTask = CreatorTask.createTask((int) (Math.random() * (level * 3)) + 0);
-        testPaneCenterPane.setCenter(currentTask.generateTask());
-
+        Pair components = currentTask.generateTask();
+        testPaneCenterPane.add((FlowPane)components.getFirst(), 1, 0);
+        testPaneCenterPane.add((Label)components.getSecond(), 0, 1, 2147483647, 1);
+        oldFlowPane = (FlowPane)components.getFirst();
+        oldLabel = (Label)components.getSecond();
         timer.schedule(tick, 0, 1000);
         testPane.setVisible(true);
     }
@@ -138,7 +148,13 @@ public class TestedController {
         testPaneCountTest.setText(currentTest+"/"+countTests);
         if(currentTest <= countTests) {
             currentTask = CreatorTask.createTask((int) (Math.random() * (level * 3)) + 0);
-            testPaneCenterPane.setCenter(currentTask.generateTask());
+            Pair components = currentTask.generateTask();
+            testPaneCenterPane.getChildren().remove(oldFlowPane);
+            testPaneCenterPane.getChildren().remove(oldLabel);
+            testPaneCenterPane.add((FlowPane)components.getFirst(), 1, 0);
+            testPaneCenterPane.add((Label)components.getSecond(), 0, 1, 2147483647, 1);
+            oldFlowPane = (FlowPane)components.getFirst();
+            oldLabel = (Label)components.getSecond();
         }
         else{
             timer.cancel();
