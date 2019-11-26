@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(25,30,36);" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windows.TestedController">
+<StackPane fx:id="stackPaneRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="windows.TestedController">
    <children>
       <BorderPane fx:id="startPane" prefHeight="200.0" prefWidth="200.0">
          <center>
@@ -38,9 +38,9 @@
             </GridPane>
          </center>
       </BorderPane>
-      <ScrollPane fx:id="testPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(25,30,36);" visible="false">
+      <ScrollPane fx:id="testPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" visible="false">
          <content>
-            <GridPane fx:id="testPaneCenterPane" gridLinesVisible="true" style="-fx-background-color: rgb(25,30,36);">
+            <GridPane fx:id="testPaneCenterPane">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="102.0" prefWidth="102.0" />
                 <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="371.0" prefWidth="371.0" />

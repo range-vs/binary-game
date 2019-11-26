@@ -11,12 +11,16 @@ import javafx.scene.layout.VBox;
 import entity.comparators.LevelComparator;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import mediator.LevelStyle;
+import mediator.StyleCreator;
+import mediator.StyleGuiMediator;
 import utils.Pair;
 import utils.ResourcesManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class MainController {
@@ -27,6 +31,11 @@ public class MainController {
     private VBox eduBox;
     private String loginCurrentUser;
 
+    // NEW
+    private StyleGuiMediator styleMediator;
+    private ArrayList<LevelStyle> levelStyles;
+    // NEW
+
     public void initialize(){
         try {
             initLevelButtons();
@@ -36,6 +45,18 @@ public class MainController {
             return;
         }
         initEduButtons();
+        initMediator(); // NEW
+    }
+
+    public void initMediator(){ // NEW: create mediator
+        styleMediator = new StyleGuiMediator();
+        StyleCreator styleCreator = new StyleCreator(styleMediator);
+        styleMediator.setStyleCreator(styleCreator);
+        levelStyles = new ArrayList<LevelStyle>(){{
+           add(LevelStyle.LOW_LEVEL);
+           add(LevelStyle.MEDIUM_LEVEL);
+           add(LevelStyle.HIGH_LEVEL);
+        }};
     }
 
     public void setLoginCurrentUser(String loginCurrentUser) {
@@ -100,6 +121,7 @@ public class MainController {
         controller.setStage(st);
         Pair l = (Pair)(((Button)actionEvent.getSource()).getUserData());
         controller.initStartPane((Integer)l.getFirst(), (String)l.getSecond());
+        controller.initStyles(styleMediator, levelStyles.get((Integer)l.getFirst())); // NEW: load styles
         controller.setLogin(loginCurrentUser);
         st.setMinHeight(400);
         st.setMinWidth(600);

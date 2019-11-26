@@ -10,9 +10,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import mediator.GuiTested;
+import mediator.LevelStyle;
+import mediator.Mediator;
+import mediator.StyleGuiMediator;
 import utils.Pair;
 
+import javax.swing.text.StyledEditorKit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,6 +27,8 @@ import java.util.TimerTask;
 
 public class TestedController {
 
+    @FXML
+    public StackPane stackPaneRoot;
     @FXML
     private BorderPane startPane;
     @FXML
@@ -55,6 +63,7 @@ public class TestedController {
     private FlowPane oldFlowPane;
     private Label oldLabel;
 
+    private GuiTested guiTested; // NEW
 
     public void initialize(){
         countSeconds = 0;
@@ -64,13 +73,28 @@ public class TestedController {
         oldFlowPane = null;
         oldLabel = null;
         correctTest = 0;
-        initStyles();
+        //initStyles();
     }
 
-    private void initStyles(){
+    /*private void initStyles(){
         startPaneButtonStart.setId("btn-start");
         testPaneButtonAnswer.setId("btn-other");
         finalPaneCloseBtn.setId("btn-start");
+
+        stackPaneRoot.setStyle("-fx-background-color: rgb(25,30,36);");
+        //testPane.setStyle("-fx-background-color: rgb(25,30,36);");
+        testPaneCenterPane.setStyle("-fx-background-color: rgb(25,30,36);");
+    }*/
+
+    public void initStyles(StyleGuiMediator mediator, LevelStyle ls){ // NEW: create mediator
+        guiTested = new GuiTested(mediator);
+        guiTested.setFinalPaneCloseBtn(finalPaneCloseBtn);
+        guiTested.setStackPaneRoot(stackPaneRoot);
+        guiTested.setStartPaneButtonStart(startPaneButtonStart);
+        guiTested.setTestPaneButtonAnswer(testPaneButtonAnswer);
+        guiTested.setTestPaneCenterPane(testPaneCenterPane);
+        mediator.setGuiTested(guiTested);
+        guiTested.send(ls);
     }
 
 

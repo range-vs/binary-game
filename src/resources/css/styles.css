@@ -1,3 +1,76 @@
+// style level low
+#btn-start-low:hover {
+    -fx-background-color: red;
+    -fx-text-fill: black;
+    -fx-scale-x: 150%;
+    -fx-scale-y: 150%;
+}
+
+#btn-other-low:hover {
+    -fx-background-color: red;
+    -fx-text-fill: black;
+}
+
+#btn-start-low{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+#btn-other-low{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+// style level medium
+#btn-start-medium:hover {
+    -fx-background-color: green;
+    -fx-text-fill: black;
+    -fx-scale-x: 150%;
+    -fx-scale-y: 150%;
+}
+
+#btn-other-medium:hover {
+    -fx-background-color: green;
+    -fx-text-fill: black;
+}
+
+#btn-start-medium{
+    -fx-background-color: grey;
+    -fx-text-fill: black;
+}
+
+#btn-other-medium{
+    -fx-background-color: grey;
+    -fx-text-fill: black;
+}
+
+// style level high
+#btn-start-high:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-scale-x: 150%;
+    -fx-scale-y: 150%;
+}
+
+#btn-other-high:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+#btn-start-high{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+#btn-other-high{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+
+
+
+
 #btn-start:hover {
     -fx-background-color: orange;
     -fx-text-fill: black;
@@ -118,6 +191,7 @@
 .table-view > .virtual-flow > .scroll-bar:horizontal > .track,
 .table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
     -fx-background-color: transparent;
+	-fx-border-color: transparent;
 }
 
 
